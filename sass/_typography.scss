@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;600&display=swap');
+
+
+$fonts: (
+    headline: '"Poppins"',
+    base: '"Open Sans"'
+);
+
+:root {
+    @each $font, $val in $fonts {
+      --font-#{$font}: #{$val}, sans-serif;  
+      
+    }
+
+    --base-font: 1rem;
+}
+
+
+
+
+$p-font-sizes: (
+  null  : 16px,
+  small : 16px,
+  medium: 18px,
+  large : 18px
+);
+
+$h3-font-sizes: (
+  null  : 24px,
+  small : 24px,
+  medium: 33px,
+  large : 40px
+);
+
+
+@mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
+    @each $fs-breakpoint, $fs-font-size in $fs-map {
+      @if $fs-breakpoint == null {
+        font-size: $fs-font-size;
+      }
+      @else {
+        // If $fs-font-size is a key that exists in
+        // $fs-breakpoints, use the value
+        @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+          $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+        }
+        @media screen and (min-width: $fs-breakpoint) {
+          font-size: $fs-font-size;
+        }
+      }
+    }
+  }
+
+  .headline-3 {
+    @include font-size($h3-font-sizes); 
+  }
+
+  .base-text {
+      @include font-size($p-font-sizes);
+  }

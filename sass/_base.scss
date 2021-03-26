@@ -1,0 +1,233 @@
+
+
+body {
+   
+    color: var(--clr-utils-white);
+    background: var(--clr-primary-violet) url(../images/bg-mobile.svg) no-repeat;
+    background-position: center top;
+    background-size: contain;
+    font-family: var(--font-base);
+
+    display: flex;
+    flex-direction: column;
+
+    @include respondto('medium') {
+        background: var(--clr-primary-violet) url(../images/bg-desktop.svg) no-repeat;
+    }
+
+    @include respondto('x-large') {
+        background: var(--clr-primary-violet) url(../images/bg-desktop.svg) no-repeat;
+        background-size: cover;
+    }
+}
+
+
+.header {
+    padding: 2rem 2.375rem 4.5rem;
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+
+    @include respondto('large') {
+        padding: 3.875rem 4.875rem 6rem;
+    }
+}
+
+.banner + .content {
+
+    @include respondto('medium') {
+        padding-left: 3.375rem;
+    }
+    
+}
+
+.container {
+    padding: 0 2.375rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    @include respondto('medium') {
+    padding: 0 4.75rem;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 90rem;
+    margin: 0 auto;
+    }
+}
+
+.logo {
+    width: 120px;
+    height: 20px;
+    display: block;
+
+    svg {
+        width: 120px;
+        height: 20px;
+        display: block;
+    }
+
+
+    @include respondto('large') {
+    width: 12.375rem;
+    height: 32px;
+
+    svg {
+        width: 198px;
+        height: 32px;
+        display: block;
+    }
+    }
+}
+
+.banner {
+    padding-bottom: 4rem;
+    width: 100%;
+    @include respondto('medium') {
+        img {
+            max-width: 30rem;
+            min-width: 20rem;
+        }
+        padding-bottom: .6rem;
+    }
+
+    @include respondto('large') {
+        img {width: 44rem;
+        max-width: none;}
+        padding-bottom: .6rem;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include respondto('medium') {
+        align-items: flex-start;
+        padding-top: 1rem;
+    }
+
+    @include respondto('large') {
+        align-items: flex-start;
+        padding-top: 3rem;
+    }
+
+  
+}
+
+.headline-3 {
+   font-family: var(--font-headline);
+   line-height: 2.15rem; 
+   margin-bottom: 1.4rem;  
+
+   @include respondto('large') {
+    line-height: 3.75rem;
+   }
+}
+
+.base-text{
+    
+    margin-bottom: 1.5rem;
+
+}
+
+.btn {
+    font-family: var(--font-headline);
+    font-size: .75rem;
+    border: 0 ;
+    background: var(--clr-utils-white);
+    color: var(--clr-primary-violet);
+    height: 2.5rem;
+    width: 200px;
+    border-radius: 12rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,.3);
+    transition: all .2s ease-out;
+
+    &:hover {
+        background: var(--clr-primary-magenta);
+        color: var(--clr-utils-white);
+    }
+
+    @include respondto(large) {
+        height: 3.5rem;
+        font-size: 1.15rem;
+    }
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+
+    .icon {
+        color: var(--clr-utils-white);
+        border: 1px solid var(--clr-utils-white);
+        width: 1.75rem;
+        height: 1.75rem;
+        display: flex;
+        align-items:center;
+        text-decoration: none;
+        justify-content: center;
+        border-radius: 6rem;
+        font-size: .85rem;
+        margin: 0 .3rem;
+        transition: all .2s ease-out;
+
+        &:hover {
+            color: var(--clr-primary-magenta);
+            border-color: var(--clr-primary-magenta);
+        }
+    }
+
+    @include respondto(large) {
+        margin-top: 0;
+        align-self: flex-end;
+
+        .icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            font-size: 1.115rem;
+            margin: 0 .5rem;
+        }
+    }
+}
+
+
+// attribution
+.footer {
+    height: 8.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 2.375rem;
+    box-sizing: border-box;
+
+    @include respondto(medium) {
+        padding: 0 4.75rem;
+        
+    }
+}
+.attribution { 
+    font-size: 11px; text-align: center; 
+    a { color: var(--clr-utils-white) }
+}
+ 
+
+// helper classes
+
+.text-center--m {
+    text-align: center;
+
+    @include respondto('medium') {
+        text-align: left;
+    }
+}
